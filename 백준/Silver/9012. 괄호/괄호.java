@@ -1,34 +1,33 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Stack;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int cnt = sc.nextInt();
-        sc.nextLine();
 
-        String[] arr = new String[cnt];
-        for (int i = 0; i < cnt; i++) {
-            String str = sc.nextLine();
-            arr[i] = str;
-        }
-        for (String s : arr) {
-            System.out.println(solution(s));
-        }
+  public static void main(String[] args) throws IOException {
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    StringBuilder sb = new StringBuilder();
+    int cnt = Integer.parseInt(br.readLine());
+    for (int i = 0; i < cnt; i++) {
+      sb.append(solve(br.readLine()));
     }
-    public static String solution(String str) {
-        Stack<String> stack = new Stack<>();
-        for (String s : str.split("")) {
-            if (s.equals("(")) {
-                stack.push(s);
-            } else if (s.equals(")")) {
-                if (stack.isEmpty()) {
-                    return "NO";
-                } else if (stack.peek().equals("(")) {
-                    stack.pop();
-                }
-            }
-        }
-        return stack.isEmpty() ? "YES" : "NO";
+    System.out.println(sb);
+  }
+
+  public static String solve(String s) {
+    Stack<Character> stack = new Stack<>();
+    for (int i = 0; i < s.length(); i++) {
+      char c = s.charAt(i);
+      if (c == '(') {
+        stack.push(c);
+      } else if (stack.isEmpty()) {
+        return "NO\n";
+      } else {
+        stack.pop();
+      }
     }
+    return stack.isEmpty() ? "YES\n" : "NO\n";
+  }
+
 }
