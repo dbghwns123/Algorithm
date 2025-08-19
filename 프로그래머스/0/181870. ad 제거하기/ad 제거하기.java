@@ -1,16 +1,6 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
+import java.util.*;
 class Solution {
     public String[] solution(String[] strArr) {
-        String str = "ad";
-        List<String> answer = new ArrayList<>();
-        for (String s : strArr) {
-            if (!s.contains(str)) {
-                answer.add(s);
-            }
-        }
-        return answer.toArray(new String[answer.size()]);
+        return Arrays.stream(strArr).filter(v -> !v.contains("ad")).toArray(String[]::new);
     }
 }
