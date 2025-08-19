@@ -1,25 +1,10 @@
+import java.util.stream.IntStream;
 class Solution {
     public int solution(int[] arr1, int[] arr2) {
-        if (arr1.length > arr2.length) {
-      return 1;
-    } else if (arr1.length < arr2.length) {
-      return -1;
-    } else {
-      int arr1_length = 0;
-      int arr2_length = 0;
-      for (int i : arr1) {
-        arr1_length += i;
-      }
-      for (int i : arr2) {
-        arr2_length += i;
-      }
-      if (arr1_length > arr2_length) {
-        return 1;
-      } else if (arr1_length < arr2_length) {
-        return -1;
-      } else {
-        return 0;
-      } 
-    }
+        int answer = Integer.compare(arr1.length, arr2.length);
+        if (answer == 0) {
+          answer = Integer.compare(IntStream.of(arr1).sum(), IntStream.of(arr2).sum());
+        }
+        return answer;
     }
 }
