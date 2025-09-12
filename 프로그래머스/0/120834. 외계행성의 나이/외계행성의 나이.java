@@ -1,13 +1,12 @@
 import java.util.*;
 class Solution {
     public String solution(int age) {
-        String[] arr = {"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"};
-        String answer = "";
-        String[] split = String.valueOf(age).split("");
-        for(String s : split){
-            answer += arr[Integer.parseInt(s)];
+        StringBuilder sb = new StringBuilder();
+
+        while (age > 0) {
+          sb.insert(0, (char) (age % 10 + (int) 'a'));
+          age /= 10;
         }
-        
-        return answer;
+        return sb.toString();
     }
 }
