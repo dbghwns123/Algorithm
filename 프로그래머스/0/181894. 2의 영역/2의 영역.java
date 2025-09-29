@@ -19,8 +19,6 @@ class Solution {
         
         if(a == -1) {
             return new int[]{-1};
-        }else if (a == b) {
-            return Arrays.copyOfRange(arr,a,b + 1);
         }else {
             return Arrays.copyOfRange(arr,a,b+1);
         }
