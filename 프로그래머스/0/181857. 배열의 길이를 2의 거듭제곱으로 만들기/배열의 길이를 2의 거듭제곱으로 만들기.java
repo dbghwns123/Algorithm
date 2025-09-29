@@ -1,11 +1,7 @@
 import java.util.*;
 class Solution {
     public int[] solution(int[] arr) {
-        int arrLength = arr.length;
-        int a = 2;
-        if(arrLength == 1) {
-            return arr;
-        }
+        int a = 1;
         while(a < arr.length) {
             a *= 2;
         }
