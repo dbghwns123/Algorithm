@@ -1,23 +1,15 @@
-import java.util.*;
 class Solution {
     public String solution(String s) {
-        HashMap<String, Integer> map = new HashMap<>();
+        int[] arr = new int[26];
+        for(char c : s.toCharArray()) {
+            arr[c - 'a']++;
+        }
         String answer = "";
-
-        for (String s1 : s.split("")) {
-            if (map.containsKey(s1)) {
-                map.put(s1, map.get(s1) + 1);
-            } else {
-                map.put(s1, 1);
+        for(int i = 0; i < 26; i++){
+            if(arr[i] == 1){
+                answer += ((char)(i + 'a'));
             }
         }
-        ArrayList<String> list = new ArrayList<>();
-        for (Map.Entry<String, Integer> entry : map.entrySet()) {
-            if (entry.getValue() == 1) {
-                list.add(entry.getKey());
-            }
-        }
-        Collections.sort(list);
-        return String.join("", list);
+        return answer;
     }
 }
