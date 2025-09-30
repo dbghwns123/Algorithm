@@ -1,17 +1,10 @@
 class Solution {
     public int solution(int n) {
-        int answer = 0;
-        int a = 1;
-        for(int i = 1; i <= 10; i++) {
-            a *= i;
-            if(a == n) {
-                return i;
-            } else if(a < n) {
-                answer = i;
-            } else {
-                return answer;
-            }
+        int answer = 1;
+        int factorial = 1;
+        while(n >= factorial) {
+            factorial *= ++answer;
         }
-        return answer;
+        return answer - 1;
     }
 }
