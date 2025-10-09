@@ -1,13 +1,13 @@
 import java.util.*;
 class Solution {
     public int[] solution(int[] arr) {
-        Stack<Integer> stack = new Stack<>();
+        Deque<Integer> stack = new ArrayDeque<>();
 
         for (int no : arr) {
-            if (!stack.isEmpty() && no == stack.peek()) {
-                stack.pop();
+            if (!stack.isEmpty() && no == stack.getLast()) {
+                stack.removeLast();
             } else {
-                stack.push(no);
+                stack.addLast(no);
             }
         }
 
