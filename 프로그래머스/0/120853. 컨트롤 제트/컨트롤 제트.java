@@ -2,13 +2,17 @@ import java.util.*;
 class Solution {
     public int solution(String s) {
         int answer = 0;
-        String[] split = s.split(" ");
-        for(int i = 0; i < split.length; i++) {
-            if(split[i].equals("Z")) {
-                answer -= Integer.parseInt(split[i - 1]);
+        Stack<Integer> stack = new Stack<>();
+
+        for (String w : s.split(" ")) {
+            if (w.equals("Z")) {
+                stack.pop();
             } else {
-                answer += Integer.parseInt(split[i]);
+                stack.push(Integer.parseInt(w));
             }
+        }
+        for (int i : stack) {
+            answer += i;
         }
         return answer;
     }
