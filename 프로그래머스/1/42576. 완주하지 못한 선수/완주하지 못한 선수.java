@@ -9,9 +9,9 @@ class Solution {
             map.put(s, map.get(s) - 1);
         }
         
-        for(Map.Entry<String, Integer> e : map.entrySet()) {
-            if(e.getValue() != 0) {
-                return e.getKey();
+        for (String key : map.keySet()) {
+            if (map.get(key) != 0){
+                return key;
             }
         }
         return "";
