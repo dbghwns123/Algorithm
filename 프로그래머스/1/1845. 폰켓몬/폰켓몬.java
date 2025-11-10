@@ -11,9 +11,16 @@ class Solution {
 //         return Math.min(set.size(), nums.length / 2);
         
         // stream을 사용하는 방법
-        return Arrays.stream(nums)
-        .boxed()
-        .collect(Collectors.collectingAndThen(Collectors.toSet(),
-            phonekemons -> Integer.min(nums.length / 2, phonekemons.size())));
+        // return Arrays.stream(nums)
+        // .boxed()
+        // .collect(Collectors.collectingAndThen(Collectors.toSet(),
+        //     phonekemons -> Integer.min(nums.length / 2, phonekemons.size())));
+        
+        // HashMap를 사용하는 방법
+        Map<Integer, Integer> map = new HashMap<>();
+        for(int i : nums) {
+            map.put(i, map.getOrDefault(i, 0) + 1);
+        }
+        return Math.min(map.size(), nums.length / 2);
     }
 }
