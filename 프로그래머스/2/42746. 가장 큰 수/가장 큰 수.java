@@ -1,7 +1,7 @@
 import java.util.*;
 class Solution {
     public String solution(int[] numbers) {
-        StringBuilder sb = new StringBuilder();
+        // StringBuilder sb = new StringBuilder();
         
         String[] stringNums = Arrays.stream(numbers)
             .mapToObj(String::valueOf)
@@ -13,8 +13,8 @@ class Solution {
             return "0";
         }
         
-        Arrays.stream(stringNums).forEach(sb::append);
+        // Arrays.stream(stringNums).forEach(sb::append);
         
-        return sb.toString();
+        return String.join("", stringNums);
     }
 }
