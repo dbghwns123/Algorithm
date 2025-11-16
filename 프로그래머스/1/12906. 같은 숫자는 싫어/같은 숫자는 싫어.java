@@ -9,8 +9,9 @@ public class Solution {
             }
         }
         int[] answer = new int[stack.size()];
-        for(int i = 0; i < answer.length; i++) {
-            answer[i] = stack.pollFirst();
+        int idx = 0;
+        for(int i : stack) {
+            answer[idx++] = i;
         }
         return answer;
         
