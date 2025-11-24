@@ -18,7 +18,9 @@ public class Main {
     }
 
     for (int i = 0; i < count - 2; i++) {
+      if (arr[i] > sum) continue;
       for (int j = i + 1; j < count - 1; j++) {
+        if (arr[i] + arr[j] > sum) continue;
         for (int k = j + 1; k < count; k++) {
           int sum1 = arr[i] + arr[j] + arr[k];
           if (sum1 == sum) {
