@@ -1,25 +1,24 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 public class Main {
 
   public static void main(String[] args) throws IOException {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     int count = Integer.parseInt(br.readLine());
-    List<Integer> list = new ArrayList<>();
+
+    boolean[] arr = new boolean[2000001];
 
     for (int i = 0; i < count; i++) {
-      list.add(Integer.parseInt(br.readLine()));
+      arr[Integer.parseInt(br.readLine()) + 1000000] = true;
     }
-    Collections.sort(list);
 
     StringBuilder sb = new StringBuilder();
-    for (Integer i : list) {
-      sb.append(i + "\n");
+    for (int i = 0; i < arr.length; i++) {
+      if (arr[i]) {
+        sb.append(i - 1000000).append('\n');
+      }
     }
     System.out.println(sb);
   }
